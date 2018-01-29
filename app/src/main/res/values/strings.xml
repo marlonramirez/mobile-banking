@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MobileBanking</string>
+    <string name="msg_empty_credentials">Por favor suministre las credenciales</string>
+    <string name="msg_invalid_credentials">Credenciales invalidas</string>
+</resources>
