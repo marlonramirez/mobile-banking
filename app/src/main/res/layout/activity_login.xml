@@ -15,14 +15,14 @@
         android:layout_marginTop="16dp"
         android:text="AlexFree"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/viewSlogan"
+        app:layout_constraintBottom_toTopOf="@+id/view_slogan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/viewSlogan"
+        android:id="@+id/view_slogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="41dp"
@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/txt_document_num"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewSlogan" />
+        app:layout_constraintTop_toBottomOf="@+id/view_slogan" />
 
     <EditText
         android:id="@+id/txt_document_num"

@@ -34,6 +34,23 @@ public class ProductAccess {
         return products;
     }
 
+    public Product getById(Context context, int id) {
+        String[] params = {String.valueOf(id)};
+        ConnexionSQLiteHelper conn = new ConnexionSQLiteHelper(context);
+        SQLiteDatabase db = conn.getReadableDatabase();
+        Product product = null;
+        String query = "SELECT pt.description, p.product_num, p.balance " +
+                "FROM product p INNER JOIN product_type pt USING(id_product_type) " +
+                "WHERE p.id_product = ?";
+        Cursor result = db.rawQuery(query, params);
+        if (result.moveToFirst()) {
+            product = new Product(id, result.getString(0), result.getString(1), result.getDouble(2));
+        }
+        db.close();
+        conn.close();
+        return product;
+    }
+
     public static ProductAccess getInstance() {
         if (instance == null) {
             instance = new ProductAccess();

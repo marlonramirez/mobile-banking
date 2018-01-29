@@ -6,14 +6,14 @@ package co.edu.usbcali.mobilebanking.model;
 
 public class Product {
     private int id;
-    private String productType;
-    private String productNumber;
+    private String type;
+    private String number;
     private double balance;
 
-    public Product(int id, String productType, String productNumber, double balance) {
+    public Product(int id, String type, String number, double balance) {
         this.id = id;
-        this.productType = productType;
-        this.productNumber = productNumber;
+        this.type = type;
+        this.number = number;
         this.balance = balance;
     }
 
@@ -25,20 +25,20 @@ public class Product {
         this.id = id;
     }
 
-    public String getProductType() {
-        return productType;
+    public String getType() {
+        return type;
     }
 
-    public void setProductType(String productType) {
-        this.productType = productType;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getProductNumber() {
-        return productNumber;
+    public String getNumber() {
+        return number;
     }
 
-    public void setProductNumber(String productNumber) {
-        this.productNumber = productNumber;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public double getBalance() {

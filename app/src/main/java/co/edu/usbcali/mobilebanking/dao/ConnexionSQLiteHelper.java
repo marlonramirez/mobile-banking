@@ -40,7 +40,8 @@ public class ConnexionSQLiteHelper extends SQLiteOpenHelper{
         String createMovementType = "CREATE TABLE movement_type (" +
                 "                id_movement_type INTEGER PRIMARY KEY," +
                 "                code TEXT NOT NULL," +
-                "                description TEXT NOT NULL" +
+                "                description TEXT NOT NULL," +
+                "                type INTEGER NOT NULL" +
                 ");";
         String createCustomer = "CREATE TABLE customer (" +
                 "                id_customer INTEGER PRIMARY KEY," +
@@ -83,23 +84,26 @@ public class ConnexionSQLiteHelper extends SQLiteOpenHelper{
                 "                id_product INTEGER NOT NULL," +
                 "                id_service INTEGER," +
                 "                id_account INTEGER," +
-                "                id_bank INTEGER NOT NULL," +
                 "                value REAL NOT NULL," +
                 "CONSTRAINT movement_type_movement_fk " +
                 "FOREIGN KEY (id_movement_type) " +
                 "REFERENCES movement_type (id_movement_type)," +
-                "CONSTRAINT service_payment_fk " +
+                "CONSTRAINT service_movement_fk " +
                 "FOREIGN KEY (id_service) " +
                 "REFERENCES service (id_service)," +
                 "CONSTRAINT account_movement_fk " +
-                "FOREIGN KEY (id_account, id_bank) " +
-                "REFERENCES account (id_account, id_bank)," +
-                "CONSTRAINT product_payment_fk " +
+                "FOREIGN KEY (id_account) " +
+                "REFERENCES account (id_account)," +
+                "CONSTRAINT product_movement_fk " +
                 "FOREIGN KEY (id_product) " +
                 "REFERENCES product (id_product)" +
                 ");";
         String insertDocumentTypes = "INSERT INTO document_type (code, description) VALUES ('CC', 'Cedula de ciudadania'), ('TI', 'Tarjeta de identidad'), ('NIT', 'Número de identificación tributario')";
         String insertCustomer = "INSERT INTO customer (id_document_type, document_num, first_name, second_name, phone, address, password) VALUES (1, '123456789', 'Alexander', 'Lopez', '310987665', 'Carrera 5 # 12-34', '123456')";
+        String insertProductTypes = "INSERT INTO product_type (code, description) VALUES ('CTH', 'Cuenta de ahorros'), ('CTC', 'Cuenta corriente'), ('TCV', 'Tarjeta de credito VISA')";
+        String insertProducts = "INSERT INTO product (id_customer, id_product_type, product_num, balance) VALUES (1, 1, '12-3456-789-0', 3000000), (1, 2, '98-765-432-10', 5600000), (1, 3, '321-456-78-90', 2000000)";
+        String insertMovementTypes = "INSERT INTO movement_type (code, description, type) VALUES ('ABN', 'Abono a cuenta', 1), ('PSV', 'Pago de servicios', 0), ('TC', 'Tranferencia a cuenta', 0)";
+        String insertMovements = "INSERT INTO movement (id_movement_type, id_product, value) VALUES (1, 1, 1200000), (1, 2, 600000), (1, 2, 800000)";
         db.execSQL(createDocumentType);
         db.execSQL(createProductType);
         db.execSQL(createService);
@@ -111,6 +115,10 @@ public class ConnexionSQLiteHelper extends SQLiteOpenHelper{
         db.execSQL(createMovement);
         db.execSQL(insertDocumentTypes);
         db.execSQL(insertCustomer);
+        db.execSQL(insertProductTypes);
+        db.execSQL(insertProducts);
+        db.execSQL(insertMovementTypes);
+        db.execSQL(insertMovements);
     }
 
     @Override

@@ -39,7 +39,7 @@ public class ProductListActivity extends AppCompatActivity {
         final List<String> arrayProducts = new ArrayList<>();
         final List<Product> products = ProductAccess.getInstance().getByCustomer(this, Session.user.getId());
         for (Product p: products) {
-            arrayProducts.add(p.getProductType());
+            arrayProducts.add(p.getType());
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
@@ -50,10 +50,10 @@ public class ProductListActivity extends AppCompatActivity {
         {
             public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3)
             {
-                /*Product selected = products.get(position);
+                Product selected = products.get(position);
                 Intent intent = new Intent(view.getContext(), ProductDetailActivity.class);
                 intent.putExtra("productId", selected.getId());
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
     }
