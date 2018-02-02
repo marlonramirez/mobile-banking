@@ -19,6 +19,10 @@
 
         <activity android:name=".view.ProductListActivity"></activity>
         <activity android:name=".view.ProductDetailActivity"></activity>
+        <activity android:name=".view.ServiceListActivity"></activity>
+        <activity android:name=".view.NewServiceActivity"></activity>
+        <activity android:name=".view.TransferListActivity"></activity>
+        <activity android:name=".view.NewTransferActivity"></activity>
     </application>
 
 </manifest>

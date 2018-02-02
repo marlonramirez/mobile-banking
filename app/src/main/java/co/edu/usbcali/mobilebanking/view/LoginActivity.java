@@ -23,7 +23,7 @@ import co.edu.usbcali.mobilebanking.model.DocumentType;
 
 public class LoginActivity extends AppCompatActivity {
     private Spinner spnDocumentType;
-    private TextView txtDcomentNum;
+    private TextView txtDocumentNum;
     private TextView txtPassword;
     private Button btnLogin;
     private DocumentType selectedDocumentType;
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         spnDocumentType = findViewById(R.id.spn_document_type);
-        txtDcomentNum = findViewById(R.id.txt_document_num);
+        txtDocumentNum = findViewById(R.id.txt_document_num);
         txtPassword = findViewById(R.id.txt_password);
         btnLogin = findViewById(R.id.btn_login);
         loadDocumentTypes();
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String document = txtDcomentNum.getText().toString();
+                String document = txtDocumentNum.getText().toString();
                 String password = txtPassword.getText().toString();
                 if (document.isEmpty() || password.isEmpty()) {
                     Toast.makeText(view.getContext(), R.string.msg_empty_credentials, Toast.LENGTH_SHORT).show();

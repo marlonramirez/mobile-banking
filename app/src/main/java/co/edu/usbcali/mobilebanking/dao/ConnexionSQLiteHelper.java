@@ -28,9 +28,13 @@ public class ConnexionSQLiteHelper extends SQLiteOpenHelper{
                 ");";
         String createService = "CREATE TABLE service (" +
                 "                id_service INTEGER PRIMARY KEY," +
+                "                id_customer INTEGER," +
                 "                name TEXT NOT NULL," +
                 "                min_payment REAL NOT NULL," +
-                "                max_payment REAL NOT NULL" +
+                "                max_payment REAL NOT NULL," +
+                "CONSTRAINT customer_service_fk " +
+                "FOREIGN KEY (id_customer) " +
+                "REFERENCES customer (id_customer)" +
                 ");";
         String createBank = "CREATE TABLE bank (" +
                 "                id_bank INTEGER PRIMARY KEY," +
@@ -58,9 +62,13 @@ public class ConnexionSQLiteHelper extends SQLiteOpenHelper{
                 ");";
         String createAccount = "CREATE TABLE account (" +
                 "                id_account INTEGER PRIMARY KEY," +
+                "                id_customer INTEGER," +
                 "                id_bank INTEGER NOT NULL," +
                 "                account_num TEXT NOT NULL," +
                 "                description TEXT NOT NULL," +
+                "CONSTRAINT customer_account_fk " +
+                "FOREIGN KEY (id_customer) " +
+                "REFERENCES customer (id_customer)," +
                 "CONSTRAINT bank_account_fk " +
                 "FOREIGN KEY (id_bank) " +
                 "REFERENCES bank (id_bank)" +
@@ -104,12 +112,13 @@ public class ConnexionSQLiteHelper extends SQLiteOpenHelper{
         String insertProducts = "INSERT INTO product (id_customer, id_product_type, product_num, balance) VALUES (1, 1, '12-3456-789-0', 3000000), (1, 2, '98-765-432-10', 5600000), (1, 3, '321-456-78-90', 2000000)";
         String insertMovementTypes = "INSERT INTO movement_type (code, description, type) VALUES ('ABN', 'Abono a cuenta', 1), ('PSV', 'Pago de servicios', 0), ('TC', 'Tranferencia a cuenta', 0)";
         String insertMovements = "INSERT INTO movement (id_movement_type, id_product, value) VALUES (1, 1, 1200000), (1, 2, 600000), (1, 2, 800000)";
+        String insertBanks = "INSERT INTO bank (code, name) VALUES ('BCO', 'Bancolombia'), ('CLP', 'Colpatria'), ('BBVA', 'BBVA Colombia')";
         db.execSQL(createDocumentType);
         db.execSQL(createProductType);
-        db.execSQL(createService);
         db.execSQL(createBank);
         db.execSQL(createMovementType);
         db.execSQL(createCustomer);
+        db.execSQL(createService);
         db.execSQL(createAccount);
         db.execSQL(createProduct);
         db.execSQL(createMovement);
@@ -119,6 +128,7 @@ public class ConnexionSQLiteHelper extends SQLiteOpenHelper{
         db.execSQL(insertProducts);
         db.execSQL(insertMovementTypes);
         db.execSQL(insertMovements);
+        db.execSQL(insertBanks);
     }
 
     @Override
@@ -126,10 +136,10 @@ public class ConnexionSQLiteHelper extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS movement");
         db.execSQL("DROP TABLE IF EXISTS product");
         db.execSQL("DROP TABLE IF EXISTS account");
+        db.execSQL("DROP TABLE IF EXISTS servive");
         db.execSQL("DROP TABLE IF EXISTS customer");
         db.execSQL("DROP TABLE IF EXISTS movement_type");
         db.execSQL("DROP TABLE IF EXISTS bank");
-        db.execSQL("DROP TABLE IF EXISTS servive");
         db.execSQL("DROP TABLE IF EXISTS product_type");
         db.execSQL("DROP TABLE IF EXISTS document_type");
         onCreate(db);

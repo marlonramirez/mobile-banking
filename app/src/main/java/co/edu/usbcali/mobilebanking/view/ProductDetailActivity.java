@@ -46,7 +46,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         final List<String> arrayMovements = new ArrayList<>();
         final List<Movement> movements = MovementAccess.getInstance().getByProduct(this, productId);
         for (Movement p: movements) {
-            arrayMovements.add(p.getType());
+            arrayMovements.add(p.getType() + ": " + p.getValue());
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
