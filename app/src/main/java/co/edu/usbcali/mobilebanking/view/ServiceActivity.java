@@ -17,7 +17,7 @@ import co.edu.usbcali.mobilebanking.dao.ServiceAccess;
  * Created by Marlon.Ramirez on 31/01/2018.
  */
 
-public class NewServiceActivity extends AppCompatActivity {
+public class ServiceActivity extends AppCompatActivity {
     private TextView txtServiceName;
     private TextView txtMaxPayment;
     private TextView txtMinPayment;
@@ -26,7 +26,7 @@ public class NewServiceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_service);
+        setContentView(R.layout.activity_service);
         txtServiceName = findViewById(R.id.txt_service_name);
         txtMaxPayment = findViewById(R.id.txt_max_payment);
         txtMinPayment = findViewById(R.id.txt_min_payment);

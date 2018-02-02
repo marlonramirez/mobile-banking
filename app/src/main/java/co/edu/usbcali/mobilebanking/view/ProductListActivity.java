@@ -56,7 +56,7 @@ public class ProductListActivity extends AppCompatActivity {
         btnTransfers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent transferenceIntent = new Intent(view.getContext(), TransferListActivity.class);
+                Intent transferenceIntent = new Intent(view.getContext(), AccountListActivity.class);
                 startActivity(transferenceIntent);
             }
         });
