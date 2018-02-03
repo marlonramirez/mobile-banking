@@ -72,8 +72,8 @@ public class PaymentActivity extends AppCompatActivity {
     private void loadServiceInfo() {
         Integer id = getIntent().getIntExtra("serviceId", 0);
         service = ServiceAccess.getInstance().getById(this, id);
-        viewMinPayment.setText(viewMinPayment.getText().toString() + service.getMinPayment());
-        viewMaxPayment.setText(viewMaxPayment.getText().toString() + service.getMaxPayment());
+        viewMinPayment.setText(viewMinPayment.getText().toString() + " $" + service.getMinPayment());
+        viewMaxPayment.setText(viewMaxPayment.getText().toString() + " $" + service.getMaxPayment());
     }
 
     private void pressAccept() {

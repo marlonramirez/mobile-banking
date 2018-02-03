@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Realizar pago"
+        android:text="@string/title_payment"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,14 +79,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Pago minimo: $" />
+                android:text="@string/txt_min_payment" />
 
             <TextView
                 android:id="@+id/view_max_payment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Pago maximo: $" />
+                android:text="@string/txt_max_payment" />
 
             <EditText
                 android:id="@+id/txt_other"
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:ems="10"
-                android:hint="Otro valor"
+                android:hint="@string/txt_other_payment"
                 android:inputType="number"
                 app:layout_constraintStart_toEndOf="@+id/rdb_other"
                 app:layout_constraintTop_toTopOf="@+id/rdb_other" />

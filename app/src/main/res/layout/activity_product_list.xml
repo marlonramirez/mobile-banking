@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="21dp"
-        android:text="Bienvenido"
+        android:text="@string/title_product_list"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/view_name"
         app:layout_constraintEnd_toEndOf="parent"

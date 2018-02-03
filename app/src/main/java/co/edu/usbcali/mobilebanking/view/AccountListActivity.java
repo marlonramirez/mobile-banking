@@ -17,6 +17,7 @@ import co.edu.usbcali.mobilebanking.R;
 import co.edu.usbcali.mobilebanking.Session;
 import co.edu.usbcali.mobilebanking.dao.AccountAccess;
 import co.edu.usbcali.mobilebanking.model.Account;
+import co.edu.usbcali.mobilebanking.view.adapter.AccountAdapter;
 
 /**
  * Created by Marlon.Ramirez on 31/01/2018.
@@ -50,15 +51,8 @@ public class AccountListActivity extends AppCompatActivity {
     }
 
     private void loadAccounts() {
-        final List<String> arrayServices = new ArrayList<>();
         final List<Account> accounts = AccountAccess.getInstance().getByCustomer(this, Session.user.getId());
-        for (Account a: accounts) {
-            arrayServices.add(a.getNum() + ": " + a.getHolder());
-        }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                arrayServices );
+        AccountAdapter arrayAdapter = new AccountAdapter(this, accounts);
         listAccounts.setAdapter(arrayAdapter);
         listAccounts.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {

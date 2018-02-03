@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">MobileBanking</string>
+    <string name="app_name">AlexFree</string>
+    <string name="slogan">Su banco amigo</string>
     <string name="msg_empty_credentials">Por favor suministre las credenciales</string>
     <string name="msg_invalid_credentials">Credenciales invalidas</string>
     <string name="dialog_title">Comfirmar</string>
@@ -8,4 +9,20 @@
     <string name="btn_ok">Aceptar</string>
     <string name="btn_login">Autenticar</string>
     <string name="btn_return">Regresar</string>
+    <string name="txt_document_num">Número de documento</string>
+    <string name="txt_password">Contraseña</string>
+    <string name="txt_num_account">Número de cuenta</string>
+    <string name="txt_description_account">Titular</string>
+    <string name="txt_max_payment">Pago maximo</string>
+    <string name="txt_min_payment">Pago minimo</string>
+    <string name="txt_other_payment">Otro valor</string>
+    <string name="txt_service_name">Nombre del servicio</string>
+    <string name="txt_amount">Monto</string>
+    <string name="title_account">Crear cuenta</string>
+    <string name="title_account_list">Transferencias</string>
+    <string name="title_payment">Realizar pago</string>
+    <string name="title_service">Crear servicio</string>
+    <string name="title_product_list">Bienvenido</string>
+    <string name="title_transfer">Transferir a</string>
+    <string name="title_service_list">Pago de servicios</string>
 </resources>

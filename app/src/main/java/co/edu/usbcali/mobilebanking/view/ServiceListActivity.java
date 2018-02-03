@@ -18,6 +18,7 @@ import co.edu.usbcali.mobilebanking.Session;
 import co.edu.usbcali.mobilebanking.dao.ServiceAccess;
 import co.edu.usbcali.mobilebanking.model.Product;
 import co.edu.usbcali.mobilebanking.model.Service;
+import co.edu.usbcali.mobilebanking.view.adapter.ServiceAdapter;
 
 /**
  * Created by Marlon.Ramirez on 31/01/2018.
@@ -51,15 +52,8 @@ public class ServiceListActivity extends AppCompatActivity {
     }
 
     private void loadServices() {
-        final List<String> arrayServices = new ArrayList<>();
         final List<Service> services = ServiceAccess.getInstance().getByCustomer(this, Session.user.getId());
-        for (Service s: services) {
-            arrayServices.add(s.getName());
-        }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                arrayServices );
+        ServiceAdapter arrayAdapter = new ServiceAdapter(this, services);
         listServices.setAdapter(arrayAdapter);
         listServices.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {

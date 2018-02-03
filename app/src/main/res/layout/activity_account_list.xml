@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="7dp"
         android:layout_marginTop="7dp"
-        android:text="Transferencias"
+        android:text="@string/title_account_list"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/list_accounts"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,10 +34,10 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="75dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

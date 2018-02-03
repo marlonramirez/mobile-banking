@@ -10,7 +10,7 @@
 
     <style name="ButtonPrimary" parent="Widget.AppCompat.Button.Colored">
         <item name="android:colorButtonNormal">@color/colorPrimary</item>
-        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColor">@color/colorPrimaryContrast</item>
     </style>
 
 </resources>

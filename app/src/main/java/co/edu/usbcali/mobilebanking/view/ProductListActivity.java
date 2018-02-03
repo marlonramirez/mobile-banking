@@ -5,18 +5,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.usbcali.mobilebanking.R;
 import co.edu.usbcali.mobilebanking.Session;
 import co.edu.usbcali.mobilebanking.dao.ProductAccess;
 import co.edu.usbcali.mobilebanking.model.Product;
+import co.edu.usbcali.mobilebanking.view.adapter.ProductAdapter;
 
 /**
  * Created by Marlon.Ramirez on 27/01/2018.
@@ -63,15 +62,8 @@ public class ProductListActivity extends AppCompatActivity {
     }
 
     private void loadProducts() {
-        final List<String> arrayProducts = new ArrayList<>();
         final List<Product> products = ProductAccess.getInstance().getByCustomer(this, Session.user.getId());
-        for (Product p: products) {
-            arrayProducts.add(p.getType() + " $" + p.getBalance());
-        }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                arrayProducts );
+        ProductAdapter arrayAdapter = new ProductAdapter(this, products);
         listProducts.setAdapter(arrayAdapter);
         listProducts.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {

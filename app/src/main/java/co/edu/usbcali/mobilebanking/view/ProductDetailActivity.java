@@ -17,6 +17,7 @@ import co.edu.usbcali.mobilebanking.dao.MovementAccess;
 import co.edu.usbcali.mobilebanking.dao.ProductAccess;
 import co.edu.usbcali.mobilebanking.model.Movement;
 import co.edu.usbcali.mobilebanking.model.Product;
+import co.edu.usbcali.mobilebanking.view.adapter.TransactionAdapter;
 
 /**
  * Created by Marlon.Ramirez on 28/01/2018.
@@ -59,15 +60,8 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void loadMovements(int productId) {
-        final List<String> arrayMovements = new ArrayList<>();
         final List<Movement> movements = MovementAccess.getInstance().getByProduct(this, productId);
-        for (Movement p: movements) {
-            arrayMovements.add(p.getType() + ": $" + p.getValue());
-        }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                arrayMovements );
+        TransactionAdapter arrayAdapter = new TransactionAdapter(this, movements);
         listMovements.setAdapter(arrayAdapter);
     }
 }
