@@ -49,9 +49,9 @@ public class AccountAccess {
         ConnexionSQLiteHelper conn = new ConnexionSQLiteHelper(context);
         SQLiteDatabase db = conn.getReadableDatabase();
         Account account = null;
-        String query = "SELECT a.id_account, a.account_num, a.description, b.name " +
+        String query = "SELECT a.account_num, a.description, b.name " +
                 "FROM account a INNER JOIN bank b USING(id_bank) " +
-                "WHERE s.id_account = ?";
+                "WHERE a.id_account = ?";
         Cursor result = db.rawQuery(query, params);
         if (result.moveToFirst()) {
             account = new Account(id, result.getString(0), result.getString(1), result.getString(2));

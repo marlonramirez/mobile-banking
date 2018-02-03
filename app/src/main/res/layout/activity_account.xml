@@ -21,45 +21,53 @@
         android:id="@+id/spn_bank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="99dp"
+        android:layout_marginBottom="33dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_num_account"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/txt_num_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginStart="1dp"
         android:ems="10"
         android:hint="Número de cuenta"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spn_bank" />
+        app:layout_constraintBottom_toTopOf="@+id/txt_holder"
+        app:layout_constraintStart_toStartOf="@+id/txt_holder" />
 
     <EditText
         android:id="@+id/txt_holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginBottom="34dp"
+        android:layout_marginStart="32dp"
         android:ems="10"
         android:hint="Titular"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/txt_num_account"
-        app:layout_constraintTop_toBottomOf="@+id/txt_num_account" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_accept"
+        app:layout_constraintStart_toStartOf="@+id/btn_return" />
 
     <Button
         android:id="@+id/btn_accept"
         style="@style/ButtonPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:text="Aceptar"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="137dp"
+        android:layout_marginEnd="44dp"
+        android:text="@string/btn_ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="34dp"
+        android:text="@string/btn_return"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_holder" />
 </android.support.constraint.ConstraintLayout>

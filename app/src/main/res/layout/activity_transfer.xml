@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/view_title"
@@ -20,18 +21,22 @@
         android:id="@+id/view_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/view_title"
+        app:layout_constraintStart_toStartOf="@+id/view_title"
         app:layout_constraintTop_toBottomOf="@+id/view_title" />
 
     <TextView
         android:id="@+id/view_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/view_name"
         app:layout_constraintStart_toStartOf="@+id/view_name"
         app:layout_constraintTop_toBottomOf="@+id/view_name" />
 
@@ -39,23 +44,23 @@
         android:id="@+id/spn_products"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="31dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/view_account"
+        app:layout_constraintStart_toStartOf="@+id/view_account"
         app:layout_constraintTop_toBottomOf="@+id/view_account" />
 
     <EditText
-        android:id="@+id/txt_ammount"
+        android:id="@+id/txt_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Monto"
         android:inputType="numberSigned"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btn_return"
         app:layout_constraintTop_toBottomOf="@+id/spn_products" />
 
     <Button
@@ -63,9 +68,19 @@
         style="@style/ButtonPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
         android:layout_marginTop="45dp"
-        android:text="Aceptar"
+        android:text="@string/btn_ok"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_amount" />
+
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/btn_return"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_ammount" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_amount" />
 </android.support.constraint.ConstraintLayout>

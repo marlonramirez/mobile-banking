@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 import co.edu.usbcali.mobilebanking.R;
 import co.edu.usbcali.mobilebanking.Session;
 import co.edu.usbcali.mobilebanking.dao.ServiceAccess;
+import co.edu.usbcali.mobilebanking.model.Product;
 import co.edu.usbcali.mobilebanking.model.Service;
 
 /**
@@ -24,15 +26,28 @@ import co.edu.usbcali.mobilebanking.model.Service;
 public class ServiceListActivity extends AppCompatActivity {
     private FloatingActionButton btnAdd;
     private ListView listServices;
+    private Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_list);
         btnAdd = findViewById(R.id.btn_add);
+        btnReturn = findViewById(R.id.btn_return);
         listServices = findViewById(R.id.list_services);
         pressNewService();
+        pressReturn();
         loadServices();
+    }
+
+    private void pressReturn() {
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent productListIntent = new Intent(view.getContext(), ProductListActivity.class);
+                startActivity(productListIntent);
+            }
+        });
     }
 
     private void loadServices() {

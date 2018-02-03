@@ -2,4 +2,10 @@
     <string name="app_name">MobileBanking</string>
     <string name="msg_empty_credentials">Por favor suministre las credenciales</string>
     <string name="msg_invalid_credentials">Credenciales invalidas</string>
+    <string name="dialog_title">Comfirmar</string>
+    <string name="dialog_positive">Aceptar</string>
+    <string name="dialog_negative">Cancelar</string>
+    <string name="btn_ok">Aceptar</string>
+    <string name="btn_login">Autenticar</string>
+    <string name="btn_return">Regresar</string>
 </resources>

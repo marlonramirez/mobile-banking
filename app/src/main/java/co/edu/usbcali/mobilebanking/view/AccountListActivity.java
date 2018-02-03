@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ import co.edu.usbcali.mobilebanking.model.Account;
 public class AccountListActivity extends AppCompatActivity {
     private FloatingActionButton btnAdd;
     private ListView listAccounts;
+    private Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,20 @@ public class AccountListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account_list);
         btnAdd = findViewById(R.id.btn_add);
         listAccounts = findViewById(R.id.list_accounts);
+        btnReturn = findViewById(R.id.btn_return);
         pressNewAccount();
         loadAccounts();
+        pressReturn();
+    }
+
+    private void pressReturn() {
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent productListIntent = new Intent(view.getContext(), ProductListActivity.class);
+                startActivity(productListIntent);
+            }
+        });
     }
 
     private void loadAccounts() {

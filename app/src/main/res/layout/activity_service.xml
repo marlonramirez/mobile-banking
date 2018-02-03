@@ -8,11 +8,13 @@
 
     <TextView
         android:id="@+id/view_title"
-        android:layout_width="229dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="28dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
-        android:text="Crear pago"
+        android:text="Crear servicio"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintBottom_toTopOf="@+id/txt_service_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,24 +25,22 @@
         android:id="@+id/txt_service_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="37dp"
-        android:layout_marginStart="7dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="105dp"
         android:ems="10"
         android:hint="Nombre del servicio"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txt_max_payment"
-        app:layout_constraintStart_toStartOf="@+id/view_title"
-        app:layout_constraintTop_toBottomOf="@+id/view_title" />
+        app:layout_constraintEnd_toEndOf="@+id/view_title"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txt_max_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Pago maximo"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/txt_min_payment"
         app:layout_constraintStart_toStartOf="@+id/txt_service_name"
         app:layout_constraintTop_toBottomOf="@+id/txt_service_name" />
 
@@ -48,23 +48,32 @@
         android:id="@+id/txt_min_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="34dp"
+        android:layout_marginEnd="29dp"
         android:ems="10"
         android:hint="Pago minimo"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/btn_accept"
-        app:layout_constraintStart_toStartOf="@+id/txt_max_payment"
-        app:layout_constraintTop_toBottomOf="@+id/txt_max_payment" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_return"
+        app:layout_constraintEnd_toEndOf="@+id/btn_accept" />
 
     <Button
         android:id="@+id/btn_accept"
+        style="@style/ButtonPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="95dp"
-        android:text="Aceptar"
-        style="@style/ButtonPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="55dp"
+        android:layout_marginTop="34dp"
+        android:text="@string/btn_ok"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_min_payment" />
+
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="98dp"
+        android:layout_marginStart="48dp"
+        android:text="@string/btn_return"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

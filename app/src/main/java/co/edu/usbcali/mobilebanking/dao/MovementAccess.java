@@ -16,6 +16,30 @@ import co.edu.usbcali.mobilebanking.model.Movement;
 public class MovementAccess {
     private static MovementAccess instance;
 
+    public void saveTransfer(Context context, int product, int account, double value) {
+        ConnexionSQLiteHelper conn = new ConnexionSQLiteHelper(context);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        String sql = "INSERT INTO movement (id_movement_type, id_product, id_account, value) " +
+                "VALUES ('3', '" + product + "', '" + account + "', '" + value + "')";
+        String updateBalance = "UPDATE product SET balance = balance - " + value + " WHERE id_product = " + product;
+        db.execSQL(sql);
+        db.execSQL(updateBalance);
+        db.close();
+        conn.close();
+    }
+
+    public void savePayment(Context context, int product, int service, double value) {
+        ConnexionSQLiteHelper conn = new ConnexionSQLiteHelper(context);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        String sql = "INSERT INTO movement (id_movement_type, id_product, id_service, value) " +
+                "VALUES ('2', '" + product + "', '" + service + "', '" + value + "')";
+        String updateBalance = "UPDATE product SET balance = balance - " + value + " WHERE id_product = " + product;
+        db.execSQL(sql);
+        db.execSQL(updateBalance);
+        db.close();
+        conn.close();
+    }
+
     public List<Movement> getByProduct(Context context, int productId) {
         String[] params = {String.valueOf(productId)};
         ConnexionSQLiteHelper conn = new ConnexionSQLiteHelper(context);

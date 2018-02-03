@@ -1,8 +1,10 @@
 package co.edu.usbcali.mobilebanking.view;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,6 +32,7 @@ public class AccountActivity extends AppCompatActivity {
     private TextView txtNumAccount;
     private TextView txtHolder;
     private Button btnAccept;
+    private Button btnReturn;
     private Bank selectedBank;
 
     @Override
@@ -40,24 +43,51 @@ public class AccountActivity extends AppCompatActivity {
         txtNumAccount = findViewById(R.id.txt_num_account);
         txtHolder = findViewById(R.id.txt_holder);
         btnAccept = findViewById(R.id.btn_accept);
+        btnReturn = findViewById(R.id.btn_return);
         loadBanks();
         pressAccept();
+        pressReturn();
+    }
+
+    private void pressReturn() {
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent accountListIntent = new Intent(view.getContext(), AccountListActivity.class);
+                startActivity(accountListIntent);
+            }
+        });
     }
 
     private void pressAccept() {
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Context context = view.getContext();
-                String numAccount = txtNumAccount.getText().toString();
-                String holder = txtHolder.getText().toString();
+                final Context context = view.getContext();
+                final String numAccount = txtNumAccount.getText().toString();
+                final String holder = txtHolder.getText().toString();
                 if (numAccount.isEmpty() || holder.isEmpty()) {
                     Toast.makeText(context, "Digite todos los campos por favor", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                AccountAccess.getInstance().save(context, Session.user.getId(), numAccount, holder, selectedBank.getId());
-                Intent transferListIntent = new Intent(context, AccountListActivity.class);
-                startActivity(transferListIntent);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                alertDialog.setTitle(R.string.dialog_title);
+                alertDialog.setMessage("¿Desea crear la cuenta " + numAccount + "?");
+                alertDialog.setPositiveButton(R.string.dialog_positive, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        AccountAccess.getInstance().save(context, Session.user.getId(), numAccount, holder, selectedBank.getId());
+                        Intent transferListIntent = new Intent(context, AccountListActivity.class);
+                        startActivity(transferListIntent);
+                    }
+                });
+                alertDialog.setNegativeButton(R.string.dialog_negative, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                alertDialog.show();
             }
         });
     }

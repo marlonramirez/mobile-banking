@@ -66,7 +66,7 @@ public class ProductListActivity extends AppCompatActivity {
         final List<String> arrayProducts = new ArrayList<>();
         final List<Product> products = ProductAccess.getInstance().getByCustomer(this, Session.user.getId());
         for (Product p: products) {
-            arrayProducts.add(p.getType());
+            arrayProducts.add(p.getType() + " $" + p.getBalance());
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
