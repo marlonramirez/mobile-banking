@@ -59,9 +59,9 @@ public class ServiceAdapter extends BaseAdapter {
         }
         Service service = items.get(position);
         TextView type = convertView.findViewById(R.id.title);
-        type.setText(service.getName());
+        type.setText(String.valueOf(service.getMaxPayment()));
         TextView code = convertView.findViewById(R.id.description);
-        code.setText("");
+        code.setText(service.getName());
         return convertView;
     }
 

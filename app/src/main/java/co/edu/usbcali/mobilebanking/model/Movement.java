@@ -7,16 +7,18 @@ package co.edu.usbcali.mobilebanking.model;
 public class Movement {
     private int id;
     private String type;
+    private int control;
     private int idProduct;
     private Integer idService;
     private Integer idAccount;
     private double value;
 
-    public Movement(int id, String type, int idProduct, double value) {
+    public Movement(int id, String type, int idProduct, double value, int control) {
         this.id = id;
         this.type = type;
         this.idProduct = idProduct;
         this.value = value;
+        this.control = control;
     }
 
     public int getId() {
@@ -65,5 +67,13 @@ public class Movement {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    public int getControl() {
+        return control;
+    }
+
+    public void setControl(int control) {
+        this.control = control;
     }
 }

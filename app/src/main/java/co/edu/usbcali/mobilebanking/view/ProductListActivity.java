@@ -1,13 +1,16 @@
 package co.edu.usbcali.mobilebanking.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -39,6 +42,26 @@ public class ProductListActivity extends AppCompatActivity {
         loadProducts();
         pressPaymentServices();
         pressTransfers();
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle(R.string.dialog_title);
+        alertDialog.setMessage("¿Desea cerra sesión?");
+        alertDialog.setPositiveButton(R.string.dialog_positive, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                ProductListActivity.super.onBackPressed();
+            }
+        });
+        alertDialog.setNegativeButton(R.string.dialog_negative, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        alertDialog.show();
     }
 
     private void pressPaymentServices() {

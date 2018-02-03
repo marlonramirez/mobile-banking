@@ -59,9 +59,9 @@ public class ProductAdapter extends BaseAdapter {
         }
         Product product = items.get(position);
         TextView type = convertView.findViewById(R.id.title);
-        type.setText(product.getType());
+        type.setText("$" + product.getBalance());
         TextView code = convertView.findViewById(R.id.description);
-        code.setText(product.getNumber());
+        code.setText(product.getType());
         return convertView;
     }
 

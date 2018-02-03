@@ -45,12 +45,12 @@ public class MovementAccess {
         ConnexionSQLiteHelper conn = new ConnexionSQLiteHelper(context);
         SQLiteDatabase db = conn.getReadableDatabase();
         ArrayList<Movement> movements = new ArrayList<>();
-        String query = "SELECT m.id_movement, mt.description, m.value " +
+        String query = "SELECT m.id_movement, mt.description, m.value, mt.type " +
                 "FROM movement m INNER JOIN movement_type mt USING(id_movement_type) " +
                 "WHERE m.id_product = ?";
         Cursor result = db.rawQuery(query, params);
         while (result.moveToNext()) {
-            Movement movement = new Movement(result.getInt(0), result.getString(1), productId, result.getDouble(2));
+            Movement movement = new Movement(result.getInt(0), result.getString(1), productId, result.getDouble(2), result.getInt(3));
             movements.add(movement);
         }
         db.close();

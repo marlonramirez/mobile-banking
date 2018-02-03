@@ -31,12 +31,12 @@ public class ServiceAccess {
         ConnexionSQLiteHelper conn = new ConnexionSQLiteHelper(context);
         SQLiteDatabase db = conn.getReadableDatabase();
         ArrayList<Service> services = new ArrayList<>();
-        String query = "SELECT s.id_service, s.name " +
+        String query = "SELECT s.id_service, s.name, s.max_payment " +
                 "FROM service s " +
                 "WHERE s.id_customer = ?";
         Cursor result = db.rawQuery(query, params);
         while (result.moveToNext()) {
-            Service service = new Service(result.getInt(0), result.getString(1));
+            Service service = new Service(result.getInt(0), result.getString(1), result.getDouble(2));
             services.add(service);
         }
         db.close();

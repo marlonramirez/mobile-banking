@@ -17,9 +17,10 @@ public class Service {
         this.minPayment = minPayment;
     }
 
-    public Service(int id, String name) {
+    public Service(int id, String name, double maxPayment) {
         this.id = id;
         this.name = name;
+        this.maxPayment = maxPayment;
     }
 
     public int getId() {

@@ -57,8 +57,11 @@ public class TransactionAdapter extends BaseAdapter {
             LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inf.inflate(R.layout.adapter_simple_list, null);
         }
+        int positiveColor = convertView.getContext().getResources().getColor(R.color.colorPositive);
+        int negativeColor = convertView.getContext().getResources().getColor(R.color.colorNegative);
         Movement transaction = items.get(position);
         TextView type = convertView.findViewById(R.id.title);
+        type.setTextColor(transaction.getControl() == 0? negativeColor: positiveColor);
         type.setText(transaction.getType());
         TextView code = convertView.findViewById(R.id.description);
         code.setText("$" + transaction.getValue());
