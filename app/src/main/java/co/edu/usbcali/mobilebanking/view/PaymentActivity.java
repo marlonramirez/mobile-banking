@@ -35,7 +35,6 @@ public class PaymentActivity extends AppCompatActivity {
     private Spinner spnProducts;
     private TextView txtOther;
     private Button btnAccept;
-    private Button btnReturn;
     private TextView viewMaxPayment;
     private TextView viewMinPayment;
     private Product selectedProduct;
@@ -49,24 +48,12 @@ public class PaymentActivity extends AppCompatActivity {
         spnProducts = findViewById(R.id.spn_products);
         txtOther = findViewById(R.id.txt_other);
         btnAccept = findViewById(R.id.btn_accept);
-        btnReturn = findViewById(R.id.btn_return);
         viewMaxPayment = findViewById(R.id.view_max_payment);
         viewMinPayment = findViewById(R.id.view_min_payment);
         rdgType = findViewById(R.id.rgd_type);
         loadServiceInfo();
         pressAccept();
         loadProducts();
-        pressReturn();
-    }
-
-    private void pressReturn() {
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent serviceListIntent = new Intent(view.getContext(), ServiceListActivity.class);
-                startActivity(serviceListIntent);
-            }
-        });
     }
 
     private void loadServiceInfo() {

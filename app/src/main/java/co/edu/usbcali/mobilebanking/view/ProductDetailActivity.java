@@ -27,7 +27,6 @@ public class ProductDetailActivity extends AppCompatActivity {
     private TextView viewTitle;
     private TextView viewNumber;
     private ListView listMovements;
-    private Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,27 +35,15 @@ public class ProductDetailActivity extends AppCompatActivity {
         viewTitle = findViewById(R.id.view_title);
         viewNumber = findViewById(R.id.view_number);
         listMovements = findViewById(R.id.list_movements);
-        btnReturn = findViewById(R.id.btn_return);
         Integer id = getIntent().getIntExtra("productId", 0);
         loadProductInfo(id);
         loadMovements(id);
-        pressReturn();
     }
 
     private void loadProductInfo(int productId) {
         Product product = ProductAccess.getInstance().getById(this, productId);
         viewTitle.setText(product.getType());
         viewNumber.setText(product.getNumber());
-    }
-
-    private void pressReturn() {
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent productListIntent = new Intent(view.getContext(), ProductListActivity.class);
-                startActivity(productListIntent);
-            }
-        });
     }
 
     private void loadMovements(int productId) {

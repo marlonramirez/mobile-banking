@@ -32,7 +32,6 @@ public class AccountActivity extends AppCompatActivity {
     private TextView txtNumAccount;
     private TextView txtHolder;
     private Button btnAccept;
-    private Button btnReturn;
     private Bank selectedBank;
 
     @Override
@@ -43,20 +42,8 @@ public class AccountActivity extends AppCompatActivity {
         txtNumAccount = findViewById(R.id.txt_num_account);
         txtHolder = findViewById(R.id.txt_holder);
         btnAccept = findViewById(R.id.btn_accept);
-        btnReturn = findViewById(R.id.btn_return);
         loadBanks();
         pressAccept();
-        pressReturn();
-    }
-
-    private void pressReturn() {
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent accountListIntent = new Intent(view.getContext(), AccountListActivity.class);
-                startActivity(accountListIntent);
-            }
-        });
     }
 
     private void pressAccept() {

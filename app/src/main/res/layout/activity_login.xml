@@ -11,14 +11,12 @@
         android:id="@+id/view_title"
         android:layout_width="136dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/view_slogan"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/view_slogan"
@@ -78,12 +76,12 @@
         style="@style/AppTheme.ButtonPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
         android:text="@string/btn_login"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txt_password"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="@+id/txt_password"
         app:layout_constraintTop_toBottomOf="@+id/txt_password" />
 

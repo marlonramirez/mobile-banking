@@ -27,29 +27,17 @@ import co.edu.usbcali.mobilebanking.view.adapter.ServiceAdapter;
 public class ServiceListActivity extends AppCompatActivity {
     private FloatingActionButton btnAdd;
     private ListView listServices;
-    private Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_list);
         btnAdd = findViewById(R.id.btn_add);
-        btnReturn = findViewById(R.id.btn_return);
         listServices = findViewById(R.id.list_services);
         pressNewService();
-        pressReturn();
         loadServices();
     }
 
-    private void pressReturn() {
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent productListIntent = new Intent(view.getContext(), ProductListActivity.class);
-                startActivity(productListIntent);
-            }
-        });
-    }
 
     private void loadServices() {
         final List<Service> services = ServiceAccess.getInstance().getByCustomer(this, Session.user.getId());

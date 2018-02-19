@@ -24,7 +24,6 @@ public class ServiceActivity extends AppCompatActivity {
     private TextView txtMaxPayment;
     private TextView txtMinPayment;
     private Button btnAccept;
-    private Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +33,9 @@ public class ServiceActivity extends AppCompatActivity {
         txtMaxPayment = findViewById(R.id.txt_max_payment);
         txtMinPayment = findViewById(R.id.txt_min_payment);
         btnAccept = findViewById(R.id.btn_accept);
-        btnReturn = findViewById(R.id.btn_return);
         pressAccept();
-        pressReturn();
     }
 
-    private void pressReturn() {
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent serviceListIntent = new Intent(view.getContext(), ServiceListActivity.class);
-                startActivity(serviceListIntent);
-            }
-        });
-    }
 
     private void pressAccept() {
         btnAccept.setOnClickListener(new View.OnClickListener() {

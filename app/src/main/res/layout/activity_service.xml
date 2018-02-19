@@ -8,72 +8,70 @@
 
     <TextView
         android:id="@+id/view_title"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="28dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="364dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/title_service"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/txt_service_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/txt_service_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
-        android:layout_marginTop="105dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
         android:hint="@string/txt_service_name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/view_title"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="@+id/view_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txt_max_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="@string/txt_max_payment"
         android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/txt_service_name"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txt_service_name"
         app:layout_constraintTop_toBottomOf="@+id/txt_service_name" />
 
     <EditText
         android:id="@+id/txt_min_payment"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="34dp"
-        android:layout_marginEnd="29dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="@string/txt_min_payment"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/btn_return"
-        app:layout_constraintEnd_toEndOf="@+id/btn_accept" />
+        app:layout_constraintEnd_toEndOf="@+id/txt_max_payment"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/txt_max_payment"
+        app:layout_constraintTop_toBottomOf="@+id/txt_max_payment" />
 
     <Button
         android:id="@+id/btn_accept"
         style="@style/AppTheme.ButtonPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginTop="36dp"
         android:text="@string/btn_ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_min_payment" />
 
-    <Button
-        android:id="@+id/btn_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="98dp"
-        android:layout_marginStart="48dp"
-        android:text="@string/btn_return"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

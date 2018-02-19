@@ -10,7 +10,7 @@
         android:id="@+id/view_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/title_transfer"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,12 +21,10 @@
         android:id="@+id/view_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        app:layout_constraintEnd_toEndOf="@+id/view_title"
-        app:layout_constraintStart_toStartOf="@+id/view_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_title" />
 
     <TextView
@@ -44,9 +42,9 @@
         android:id="@+id/spn_products"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="43dp"
         app:layout_constraintEnd_toEndOf="@+id/view_account"
         app:layout_constraintStart_toStartOf="@+id/view_account"
         app:layout_constraintTop_toBottomOf="@+id/view_account" />
@@ -55,12 +53,13 @@
         android:id="@+id/txt_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
         android:hint="@string/txt_amount"
         android:inputType="numberSigned"
-        app:layout_constraintStart_toStartOf="@+id/btn_return"
+        app:layout_constraintEnd_toEndOf="@+id/spn_products"
+        app:layout_constraintStart_toStartOf="@+id/spn_products"
         app:layout_constraintTop_toBottomOf="@+id/spn_products" />
 
     <Button
@@ -68,19 +67,12 @@
         style="@style/AppTheme.ButtonPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
         android:text="@string/btn_ok"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txt_amount"
+        app:layout_constraintStart_toStartOf="@+id/txt_amount"
         app:layout_constraintTop_toBottomOf="@+id/txt_amount" />
 
-    <Button
-        android:id="@+id/btn_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="45dp"
-        android:text="@string/btn_return"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_amount" />
 </android.support.constraint.ConstraintLayout>

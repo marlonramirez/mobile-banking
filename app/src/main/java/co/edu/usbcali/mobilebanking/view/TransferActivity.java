@@ -35,7 +35,6 @@ public class TransferActivity extends AppCompatActivity {
     private TextView viewAccount;
     private TextView txtAmount;
     private Button btnAccept;
-    private Button btnReturn;
     private Product selectedProduct;
     private Account account;
 
@@ -48,11 +47,9 @@ public class TransferActivity extends AppCompatActivity {
         viewName = findViewById(R.id.view_name);
         txtAmount = findViewById(R.id.txt_amount);
         btnAccept = findViewById(R.id.btn_accept);
-        btnReturn = findViewById(R.id.btn_return);
         loadProducts();
         loadAccountInfo();
         pressAccept();
-        pressReturn();
     }
 
     private void pressAccept() {
@@ -83,16 +80,6 @@ public class TransferActivity extends AppCompatActivity {
                     }
                 });
                 alertDialog.show();
-            }
-        });
-    }
-
-    private void pressReturn() {
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent accountListIntent = new Intent(view.getContext(), AccountListActivity.class);
-                startActivity(accountListIntent);
             }
         });
     }
